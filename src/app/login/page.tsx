@@ -25,10 +25,10 @@ export default function LoginPage() {
   // Redirect if already logged in
   useEffect(() => {
     if (!isPending && session?.user) {
-      const redirectPath = session.user.role === 'broker' ? '/broker/leads' : '/';
-      router.push(redirectPath);
+      const redirectPath = session.user.role === 'broker' ? '/broker/leads' : '/'
+      window.location.href = redirectPath
     }
-  }, [session, isPending, router])
+  }, [session, isPending])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -47,15 +47,24 @@ export default function LoginPage() {
         return
       }
 
+      if (!data?.user) {
+        toast.error("Login failed. Please try again.")
+        setIsLoading(false)
+        return
+      }
+
       toast.success("Login successful! Redirecting...")
       
-      // Wait a bit longer for cookie to be set, then force a full page reload
-      await new Promise(resolve => setTimeout(resolve, 800))
+      // Determine redirect path based on role
+      const redirectPath = data.user.role === 'broker' ? '/broker/leads' : '/'
       
-      // Use window.location for full page reload to ensure cookies are properly read
-      const redirectPath = data?.user?.role === 'broker' ? '/broker/leads' : '/'
-      window.location.href = redirectPath
+      // Use setTimeout to ensure toast is visible, then full page reload
+      setTimeout(() => {
+        window.location.href = redirectPath
+      }, 1000)
+      
     } catch (error) {
+      console.error("Login error:", error)
       toast.error("An error occurred. Please try again.")
       setIsLoading(false)
     }
@@ -72,7 +81,11 @@ export default function LoginPage() {
 
   // Don't show login form if already logged in
   if (session?.user) {
-    return null
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    )
   }
 
   return (

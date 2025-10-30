@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1761351112356,
+      "tag": "0000_blushing_mephisto",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1761552093127,
+      "tag": "0001_serious_liz_osborn",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1761554644467,
+      "tag": "0002_nappy_nemesis",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1761570158097,
+      "tag": "0003_dizzy_doctor_strange",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1761588875397,
+      "tag": "0004_familiar_baron_zemo",
+      "breakpoints": true
+    }
+  ]
+}

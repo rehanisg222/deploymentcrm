@@ -1,0 +1,1 @@
+ALTER TABLE `leads` ADD `stage` text DEFAULT 'new' NOT NULL;

@@ -1,0 +1,214 @@
+/* Updated: 2025-10-30T09:41:47.697Z */
+/* Updated: 2025-10-30T08:49:02.024Z */
+/* Updated: 2025-10-30T08:48:22.679Z */
+/* Updated: 2025-10-30T07:30:38.589Z */
+/* Updated: 2025-10-30T06:46:25.323Z */
+/* Updated: 2025-10-30T06:30:43.635Z */
+/* Updated: 2025-10-30T06:14:51.888Z */
+/* Updated: 2025-10-30T06:10:34.547Z */
+/* Updated: 2025-10-30T05:14:09.929Z */
+/* Updated: 2025-10-30T05:13:45.321Z */
+/* Updated: 2025-10-29T12:19:31.691Z */
+/* Updated: 2025-10-29T12:02:34.801Z */
+/* Updated: 2025-10-29T11:45:33.728Z */
+/* Updated: 2025-10-29T11:21:54.083Z */
+/* Updated: 2025-10-29T11:20:14.713Z */
+/* Updated: 2025-10-29T11:18:14.222Z */
+/* Updated: 2025-10-29T11:17:57.362Z */
+/* Updated: 2025-10-29T11:17:51.045Z */
+/* Updated: 2025-10-29T11:16:01.735Z */
+/* Updated: 2025-10-29T11:15:31.728Z */
+/* Updated: 2025-10-29T11:14:22.305Z */
+/* Updated: 2025-10-29T11:03:13.389Z */
+/* Updated: 2025-10-28T23:11:33.162Z */
+/* Updated: 2025-10-28T21:50:50.086Z */
+/* Updated: 2025-10-28T21:50:14.344Z */
+/* Updated: 2025-10-28T21:48:30.090Z */
+/* Updated: 2025-10-28T14:27:54.928Z */
+/* Updated: 2025-10-28T14:13:33.740Z */
+/* Updated: 2025-10-28T13:46:07.973Z */
+/* Updated: 2025-10-28T13:43:33.075Z */
+/* Updated: 2025-10-28T13:42:28.945Z */
+/* Updated: 2025-10-28T13:22:34.864Z */
+/* Updated: 2025-10-28T12:45:26.188Z */
+/* Updated: 2025-10-28T12:33:18.319Z */
+/* Updated: 2025-10-28T11:59:10.115Z */
+/* Updated: 2025-10-28T11:52:50.104Z */
+/* Updated: 2025-10-28T11:01:32.136Z */
+/* Updated: 2025-10-28T06:11:11.415Z */
+/* Updated: 2025-10-27T19:15:27.963Z */
+/* Updated: 2025-10-27T19:05:39.185Z */
+/* Updated: 2025-10-27T19:05:22.222Z */
+/* Updated: 2025-10-27T17:36:17.718Z */
+/* Updated: 2025-10-27T17:33:25.061Z */
+/* Updated: 2025-10-27T15:34:33.906Z */
+/* Updated: 2025-10-27T15:25:52.438Z */
+/* Updated: 2025-10-27T15:00:51.010Z */
+/* Updated: 2025-10-27T14:47:57.158Z */
+/* Updated: 2025-10-27T14:43:40.359Z */
+/* Updated: 2025-10-27T14:06:34.757Z */
+/* Updated: 2025-10-27T13:50:22.914Z */
+/* Updated: 2025-10-27T13:50:13.350Z */
+/* Updated: 2025-10-27T13:50:12.627Z */
+/* Updated: 2025-10-27T13:08:49.662Z */
+/* Updated: 2025-10-27T09:49:28.714Z */
+/* Updated: 2025-10-27T09:07:32.565Z */
+/* Updated: 2025-10-27T08:16:08.736Z */
+/* Updated: 2025-10-27T08:15:57.550Z */
+/* Updated: 2025-10-27T07:44:34.400Z */
+/* Updated: 2025-10-27T06:40:37.428Z */
+/* Updated: 2025-10-27T06:40:02.933Z */
+/* Updated: 2025-10-27T06:39:06.438Z */
+/* Updated: 2025-10-25T13:55:10.677Z */
+/* Updated: 2025-10-25T11:09:20.648Z */
+/* Updated: 2025-10-25T02:06:14.187Z */
+/* Updated: 2025-10-25T02:05:51.933Z */
+/* Updated: 2025-10-25T02:04:15.144Z */
+/* Updated: 2025-10-25T00:06:10.441Z */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.18 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.628 0.258 262.881);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.25 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.25 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.628 0.258 262.881);
+  --chart-1: oklch(0.628 0.258 262.881);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.16 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.628 0.258 262.881);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.22 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.628 0.258 262.881);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.18 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.628 0.258 262.881);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.25 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.25 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.628 0.258 262.881);
+  --chart-1: oklch(0.628 0.258 262.881);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.16 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.628 0.258 262.881);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.22 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.628 0.258 262.881);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-muted);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-muted-foreground);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}

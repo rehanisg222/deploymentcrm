@@ -5,6 +5,8 @@ const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader
 
 
 const nextConfig: NextConfig = {
+  output: 'standalone', // Optimized for deployment
+  trailingSlash: false, // Consistent URL handling
   images: {
     remotePatterns: [
       {
@@ -33,4 +35,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-// Orchids restart: 1761817653254
+// Orchids restart: 1761820136754

@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Building2, Eye, EyeOff, Loader2 } from "lucide-react"
 import { toast } from "sonner"
+import { authClient } from "@/lib/auth-client"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -25,41 +26,29 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-          rememberMe: formData.rememberMe,
-        }),
-      });
+      const { data, error } = await authClient.signIn.email({
+        email: formData.email,
+        password: formData.password,
+        rememberMe: formData.rememberMe,
+      })
 
-      const data = await response.json();
-
-      if (!response.ok || data.error) {
-        toast.error(data.error?.message || "Invalid email or password. Please check your credentials and try again.")
+      if (error?.code) {
+        toast.error("Invalid email or password. Please make sure you have already registered an account and try again.")
+        setIsLoading(false)
         return
-      }
-
-      // Store the session token
-      if (data.session?.token) {
-        localStorage.setItem("bearer_token", data.session.token);
       }
 
       toast.success("Login successful! Redirecting...")
       
       // Redirect based on user role
-      const redirectPath = data.user?.role === 'broker' ? '/broker/leads' : '/';
+      const redirectPath = data?.user?.role === 'broker' ? '/broker/leads' : '/';
       
       setTimeout(() => {
-        window.location.href = redirectPath
+        router.push(redirectPath)
+        router.refresh()
       }, 500)
     } catch (error) {
       toast.error("An error occurred. Please try again.")
-    } finally {
       setIsLoading(false)
     }
   }

@@ -10,7 +10,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import { Separator } from "@/components/ui/separator"
-import { Building2, Mail, MessageSquare, Webhook, Users, Shield } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Building2, Mail, MessageSquare, Webhook, Users, Shield, Plus } from "lucide-react"
 
 export default function SettingsPage() {
   const [settings, setSettings] = React.useState<any>(null)

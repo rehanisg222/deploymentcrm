@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,10 +9,11 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Building2, Eye, EyeOff, Loader2 } from "lucide-react"
 import { toast } from "sonner"
-import { authClient } from "@/lib/auth-client"
+import { authClient, useSession } from "@/lib/auth-client"
 
 export default function LoginPage() {
   const router = useRouter()
+  const { data: session, isPending } = useSession()
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
@@ -20,6 +21,14 @@ export default function LoginPage() {
     password: "",
     rememberMe: false
   })
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (!isPending && session?.user) {
+      const redirectPath = session.user.role === 'broker' ? '/broker/leads' : '/';
+      router.push(redirectPath);
+    }
+  }, [session, isPending, router])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -40,17 +49,30 @@ export default function LoginPage() {
 
       toast.success("Login successful! Redirecting...")
       
-      // Redirect based on user role
-      const redirectPath = data?.user?.role === 'broker' ? '/broker/leads' : '/';
+      // Wait a bit longer for cookie to be set, then force a full page reload
+      await new Promise(resolve => setTimeout(resolve, 800))
       
-      setTimeout(() => {
-        router.push(redirectPath)
-        router.refresh()
-      }, 500)
+      // Use window.location for full page reload to ensure cookies are properly read
+      const redirectPath = data?.user?.role === 'broker' ? '/broker/leads' : '/'
+      window.location.href = redirectPath
     } catch (error) {
       toast.error("An error occurred. Please try again.")
       setIsLoading(false)
     }
+  }
+
+  // Show loading while checking session
+  if (isPending) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    )
+  }
+
+  // Don't show login form if already logged in
+  if (session?.user) {
+    return null
   }
 
   return (
